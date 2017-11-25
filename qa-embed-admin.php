@@ -15,7 +15,7 @@
 		case 'embed_thickbox_thumb':
 		    return 64;
 		case 'embed_mp3_player_code':
-		    return '<object type="application/x-shockwave-flash" data="http://flash-mp3-player.net/medias/player_mp3_mini.swf" width="200" height="20"><param name="movie" value="http://flash-mp3-player.net/medias/player_mp3_mini.swf" /><param name="bgcolor" value="#000000" /><param name="FlashVars" value="mp3=$1" /></object>';
+		    return '<object type="application/x-shockwave-flash" data="player_mp3_maxi.swf" width="200" height="20"><param name="movie" value="player_mp3_maxi.swf" /><param name="FlashVars" value="mp3=test.mp3" /></object>';
 		default:
 		    return null;				
 	    }
@@ -36,8 +36,6 @@
 		
 		if (qa_clicked('embed_save')) {
 			qa_opt('embed_enable',(bool)qa_post_text('embed_enable'));
-			qa_opt('embed_video_width',qa_post_text('embed_video_width'));
-			qa_opt('embed_video_height',qa_post_text('embed_video_height'));
 			qa_opt('embed_enable_img',(bool)qa_post_text('embed_enable_img'));
 			qa_opt('embed_image_width',qa_post_text('embed_image_width'));
 			qa_opt('embed_image_height',qa_post_text('embed_image_height'));
@@ -69,19 +67,7 @@
 			'tags' => 'NAME="embed_enable"',
 			'value' => qa_opt('embed_enable'),
 			'type' => 'checkbox',
-		);
-	    $fields[] = array(
-			'label' => 'Embeded video width',
-			'type' => 'number',
-			'value' => qa_opt('embed_video_width'),
-			'tags' => 'NAME="embed_video_width"',
-	    );                    
-	    $fields[] = array(
-			'label' => 'Embeded video height',
-			'type' => 'number',
-			'value' => qa_opt('embed_video_height'),
-			'tags' => 'NAME="embed_video_height"',
-	    );                    
+		);                  
             
 		$fields[] = array(
 			'type' => 'blank',
